@@ -23,11 +23,12 @@
 		 		{
 		 			$json.="{\"nombre\":\"".$canal['nombre']."\",\"programas\":[";
 		 			while($programa = mysql_fetch_array($programas)){
-		 				$json.="{programa:{\"nombre\":\"".$programa['nombre']."\",\"horario\":\"".$programa['horaDeInicio']."\"}}";
-		 				$json.="]}";
-		 				$json.="}";
+		 				$json.="{\"programa\":{\"nombre\":\"".$programa['nombre']."\",\"horario\":\"".$programa['horaDeInicio']."\"}},";
 		 			}
+		 			$json = substr($json, 0, -1);
+		 			$json.="]}";
 		 		}
+		 	$json.="}";
 		 	return $json;	
 		 }
 		 public function getApi($canal)

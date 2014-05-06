@@ -23,7 +23,7 @@
 		 		{
 		 			$json.="{\"nombre\":\"".$canal['nombre']."\",\"programas\":[";
 		 			while($programa = mysql_fetch_array($programas)){
-		 				$json.="{\"programa\":{\"nombre\":\"".$programa['nombre']."\",\"horario\":\"".$programa['horaDeInicio']."\"}},";
+		 				$json.="{\"programa\":{\"nombre\":\"".$programa['nombre']."\",\"horario\":\"".$programa['horaDeInicio']."\",\"id\":".$programa["idprograma"]."}},";
 		 			}
 		 			$json = substr($json, 0, -1);
 		 			$json.="]}";
